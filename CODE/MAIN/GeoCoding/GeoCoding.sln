@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schemas", "Schemas\Schemas.btproj", "{6F54AAC6-50BE-452D-B0F4-46BE9F13C736}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{1634CEFA-3271-46FF-85C8-5B72181DAEF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orchestrations", "Orchestrations\Orchestrations.btproj", "{89997081-D1BA-42AB-BD5F-261F4B6718E1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://btdemos.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Schemas\\Schemas.btproj
+		SccProjectName1 = Schemas
+		SccLocalPath1 = Schemas
+		SccProjectUniqueName2 = Database\\Database.sqlproj
+		SccProjectName2 = Database
+		SccLocalPath2 = Database
+		SccProjectUniqueName3 = Orchestrations\\Orchestrations.btproj
+		SccProjectName3 = Orchestrations
+		SccLocalPath3 = Orchestrations
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F54AAC6-50BE-452D-B0F4-46BE9F13C736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F54AAC6-50BE-452D-B0F4-46BE9F13C736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F54AAC6-50BE-452D-B0F4-46BE9F13C736}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6F54AAC6-50BE-452D-B0F4-46BE9F13C736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F54AAC6-50BE-452D-B0F4-46BE9F13C736}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F54AAC6-50BE-452D-B0F4-46BE9F13C736}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1634CEFA-3271-46FF-85C8-5B72181DAEF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1634CEFA-3271-46FF-85C8-5B72181DAEF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1634CEFA-3271-46FF-85C8-5B72181DAEF3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1634CEFA-3271-46FF-85C8-5B72181DAEF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1634CEFA-3271-46FF-85C8-5B72181DAEF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1634CEFA-3271-46FF-85C8-5B72181DAEF3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{89997081-D1BA-42AB-BD5F-261F4B6718E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89997081-D1BA-42AB-BD5F-261F4B6718E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89997081-D1BA-42AB-BD5F-261F4B6718E1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{89997081-D1BA-42AB-BD5F-261F4B6718E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89997081-D1BA-42AB-BD5F-261F4B6718E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89997081-D1BA-42AB-BD5F-261F4B6718E1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

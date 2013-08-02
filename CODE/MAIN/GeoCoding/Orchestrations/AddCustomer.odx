@@ -1,0 +1,311 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="844219e1-b078-4830-bab3-d7b8a4405faf" LowerBound="1.1" HigherBound="62.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="Neudesic.BizTalkRESTDemo.Orchestration" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="ServiceDeclaration" OID="860d36c2-b287-45f9-9172-db74a81a3236" ParentLink="Module_ServiceDeclaration" LowerBound="25.1" HigherBound="61.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="AddCustomer" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="MessageDeclaration" OID="3bde14a8-adc3-495b-a802-08790c3f875a" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="34.1" HigherBound="35.1">
+                <om:Property Name="Type" Value="Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgAddCustomer" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="c3f94d03-4c47-4b6a-9a5f-f920045c8aff" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="35.1" HigherBound="36.1">
+                <om:Property Name="Type" Value="Neudesic.BizTalkRESTDemo.Schema.GeocodeResponse" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgGeoInfo" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="4b3379a6-d9f8-40b1-8016-2af961a384ca" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="36.1" HigherBound="37.1">
+                <om:Property Name="Type" Value="Neudesic.BizTalkRESTDemo.Schema.sqlBinding_dbo.AddCustomer" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgAddCustomerSql" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="a6fcf7f8-931f-4530-956d-7514b65adbe4" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="37.1" HigherBound="38.1">
+                <om:Property Name="Type" Value="Neudesic.BizTalkRESTDemo.Schema.sqlBinding_dbo.AddCustomerResponse" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgSqlResponse" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="9ecde893-1488-4917-b9d7-2de432e5202d" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="b7a1af59-814d-4b37-831c-2df07b97ef94" ParentLink="ServiceBody_Statement" LowerBound="40.1" HigherBound="42.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="AddCustomerPort" />
+                    <om:Property Name="MessageName" Value="msgAddCustomer" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive Req" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Send" OID="5671c46a-35d1-4421-9733-88fd3293d1af" ParentLink="ServiceBody_Statement" LowerBound="42.1" HigherBound="44.1">
+                    <om:Property Name="PortName" Value="GeoCodeLookupPort" />
+                    <om:Property Name="MessageName" Value="msgAddCustomer" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send Lookup" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Receive" OID="c766b501-e4a9-4462-8370-6e8c6e83805e" ParentLink="ServiceBody_Statement" LowerBound="44.1" HigherBound="46.1">
+                    <om:Property Name="Activate" Value="False" />
+                    <om:Property Name="PortName" Value="GeoCodeLookupPort" />
+                    <om:Property Name="MessageName" Value="msgGeoInfo" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive Lookup Response" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Construct" OID="22672e99-4ffe-4069-ab80-654c9d3e350f" ParentLink="ServiceBody_Statement" LowerBound="46.1" HigherBound="55.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ConstructMessage_1" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Transform" OID="21583849-7f5d-4f8f-9e33-6c00e934bdc3" ParentLink="ComplexStatement_Statement" LowerBound="49.1" HigherBound="51.1">
+                        <om:Property Name="ClassName" Value="Neudesic.BizTalkRESTDemo.Orchestration.Map.GeoResponse_to_SQLProc" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Transform_1" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="06a67a72-81d0-413a-9861-e541bf0387fb" ParentLink="Transform_InputMessagePartRef" LowerBound="50.116" HigherBound="50.126">
+                            <om:Property Name="MessageRef" Value="msgGeoInfo" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_1" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessagePartRef" OID="8c0eb591-ca50-40ae-bc09-ab9d5a9a73bc" ParentLink="Transform_OutputMessagePartRef" LowerBound="50.28" HigherBound="50.45">
+                            <om:Property Name="MessageRef" Value="msgAddCustomerSql" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_2" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="MessageAssignment" OID="9d07295e-7208-4073-8ca2-7e023a13a429" ParentLink="ComplexStatement_Statement" LowerBound="51.1" HigherBound="54.1">
+                        <om:Property Name="Expression" Value="msgAddCustomerSql.firstName = msgAddCustomer.FirstName;&#xD;&#xA;msgAddCustomerSql.lastName = msgAddCustomer.LastName;" />
+                        <om:Property Name="ReportToAnalyst" Value="False" />
+                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="MessageRef" OID="0c53bc24-a702-4a05-bd97-7671731151b3" ParentLink="Construct_MessageRef" LowerBound="47.23" HigherBound="47.40">
+                        <om:Property Name="Ref" Value="msgAddCustomerSql" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Send" OID="610db61c-43ca-41b7-94b8-e3659993e092" ParentLink="ServiceBody_Statement" LowerBound="55.1" HigherBound="57.1">
+                    <om:Property Name="PortName" Value="SqlOutPort" />
+                    <om:Property Name="MessageName" Value="msgAddCustomerSql" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Receive" OID="f8049b41-5161-4e6c-bb39-6aca32df87f1" ParentLink="ServiceBody_Statement" LowerBound="57.1" HigherBound="59.1">
+                    <om:Property Name="Activate" Value="False" />
+                    <om:Property Name="PortName" Value="SqlOutPort" />
+                    <om:Property Name="MessageName" Value="msgSqlResponse" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="ceffa27b-e447-448c-ada1-2a7452cdadd1" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="28.1" HigherBound="30.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="3" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="Neudesic.BizTalkRESTDemo.Orchestration.AddCustomerRequestPortType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="AddCustomerPort" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="2363f0a8-af06-419c-b761-fd807c66aac6" ParentLink="PortDeclaration_CLRAttribute" LowerBound="28.1" HigherBound="29.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="956dc7be-c0fa-48da-a26a-839e9d6cbad7" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="30.1" HigherBound="32.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="11" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="Neudesic.BizTalkRESTDemo.Orchestration.GeoCodeLookupPortType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="GeoCodeLookupPort" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="dff8c8c1-b97f-42fb-8ad7-68a5a732c526" ParentLink="PortDeclaration_CLRAttribute" LowerBound="30.1" HigherBound="31.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="2a040848-f6af-4d7e-8955-232f3e87fa6c" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="32.1" HigherBound="34.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="15" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="Neudesic.BizTalkRESTDemo.Orchestration.AddCustomerPortType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="SqlOutPort" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="5fd01b19-685b-4886-b620-f914243288c0" ParentLink="PortDeclaration_CLRAttribute" LowerBound="32.1" HigherBound="33.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="d6c0abf4-9105-4678-82f8-d8cd694edafe" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="AddCustomerRequestPortType" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="a1363d2b-f783-4830-9edb-17af8a42555b" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="7b7ad005-345b-428b-839c-cc118ce4ff7c" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.63">
+                    <om:Property Name="Ref" Value="Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="b4068ed0-6904-4ef5-8dd1-4c180a828126" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="GeoCodeLookupPortType" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="677fa01c-e057-41a9-9f05-664ed01e5777" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="112a8a39-1e19-465d-acd3-e89c82ed2d9c" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.63">
+                    <om:Property Name="Ref" Value="Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="ff829a06-6e5a-4e5e-8f35-0613f7248422" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="15.65" HigherBound="15.112">
+                    <om:Property Name="Ref" Value="Neudesic.BizTalkRESTDemo.Schema.GeocodeResponse" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="456a7d4b-7705-4b12-bde7-cb45f4fc2e29" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="AddCustomerPortType" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="297e0ddf-120e-435e-883a-ab271e9b36a5" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="7ae51101-e103-4b37-9304-e8734c1a6f11" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.71">
+                    <om:Property Name="Ref" Value="Neudesic.BizTalkRESTDemo.Schema.sqlBinding_dbo.AddCustomer" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="794af701-9f93-4999-a7c5-9f620ac19d70" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="22.73" HigherBound="22.139">
+                    <om:Property Name="Ref" Value="Neudesic.BizTalkRESTDemo.Schema.sqlBinding_dbo.AddCustomerResponse" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module Neudesic.BizTalkRESTDemo.Orchestration
+{
+    internal porttype AddCustomerRequestPortType
+    {
+        oneway Operation_1
+        {
+            Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest
+        };
+    };
+    internal porttype GeoCodeLookupPortType
+    {
+        requestresponse Operation_1
+        {
+            Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest, Neudesic.BizTalkRESTDemo.Schema.GeocodeResponse
+        };
+    };
+    internal porttype AddCustomerPortType
+    {
+        requestresponse Operation_1
+        {
+            Neudesic.BizTalkRESTDemo.Schema.sqlBinding_dbo.AddCustomer, Neudesic.BizTalkRESTDemo.Schema.sqlBinding_dbo.AddCustomerResponse
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service AddCustomer
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements AddCustomerRequestPortType AddCustomerPort;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses GeoCodeLookupPortType GeoCodeLookupPort;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses AddCustomerPortType SqlOutPort;
+        message Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest msgAddCustomer;
+        message Neudesic.BizTalkRESTDemo.Schema.GeocodeResponse msgGeoInfo;
+        message Neudesic.BizTalkRESTDemo.Schema.sqlBinding_dbo.AddCustomer msgAddCustomerSql;
+        message Neudesic.BizTalkRESTDemo.Schema.sqlBinding_dbo.AddCustomerResponse msgSqlResponse;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("b7a1af59-814d-4b37-831c-2df07b97ef94")]
+            activate receive (AddCustomerPort.Operation_1, msgAddCustomer);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("5671c46a-35d1-4421-9733-88fd3293d1af")]
+            send (GeoCodeLookupPort.Operation_1, msgAddCustomer);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c766b501-e4a9-4462-8370-6e8c6e83805e")]
+            receive (GeoCodeLookupPort.Operation_1, msgGeoInfo);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("22672e99-4ffe-4069-ab80-654c9d3e350f")]
+            construct msgAddCustomerSql
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("21583849-7f5d-4f8f-9e33-6c00e934bdc3")]
+                transform (msgAddCustomerSql) = Neudesic.BizTalkRESTDemo.Orchestration.Map.GeoResponse_to_SQLProc (msgGeoInfo);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("9d07295e-7208-4073-8ca2-7e023a13a429")]
+                msgAddCustomerSql.firstName = msgAddCustomer.FirstName;
+                msgAddCustomerSql.lastName = msgAddCustomer.LastName;
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("610db61c-43ca-41b7-94b8-e3659993e092")]
+            send (SqlOutPort.Operation_1, msgAddCustomerSql);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("f8049b41-5161-4e6c-bb39-6aca32df87f1")]
+            receive (SqlOutPort.Operation_1, msgSqlResponse);
+        }
+    }
+}
+

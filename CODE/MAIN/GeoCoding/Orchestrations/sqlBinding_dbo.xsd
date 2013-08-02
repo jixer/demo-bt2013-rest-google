@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<schema xmlns:ns3="http://schemas.datacontract.org/2004/07/System.Data" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Sql/2008/05/Procedures/dbo" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation=".\sqlBinding_System_x2eData.xsd" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+  <annotation>
+    <appinfo>
+      <fileNameHint xmlns="http://schemas.microsoft.com/servicemodel/adapters/metadata/xsd">Procedure.dbo</fileNameHint>
+    </appinfo>
+  </annotation>
+  <element name="AddCustomer">
+    <annotation>
+      <documentation>
+        <doc:action xmlns:doc="http://schemas.microsoft.com/servicemodel/adapters/metadata/documentation">Procedure/dbo/AddCustomer</doc:action>
+      </documentation>
+    </annotation>
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="1" name="firstName" nillable="true">
+          <simpleType>
+            <restriction base="string">
+              <maxLength value="150" />
+            </restriction>
+          </simpleType>
+        </element>
+        <element minOccurs="0" maxOccurs="1" name="lastName" nillable="true">
+          <simpleType>
+            <restriction base="string">
+              <maxLength value="150" />
+            </restriction>
+          </simpleType>
+        </element>
+        <element minOccurs="0" maxOccurs="1" name="street1" nillable="true">
+          <simpleType>
+            <restriction base="string">
+              <maxLength value="255" />
+            </restriction>
+          </simpleType>
+        </element>
+        <element minOccurs="0" maxOccurs="1" name="street2" nillable="true">
+          <simpleType>
+            <restriction base="string">
+              <maxLength value="255" />
+            </restriction>
+          </simpleType>
+        </element>
+        <element minOccurs="0" maxOccurs="1" name="city" nillable="true">
+          <simpleType>
+            <restriction base="string">
+              <maxLength value="100" />
+            </restriction>
+          </simpleType>
+        </element>
+        <element minOccurs="0" maxOccurs="1" name="state" nillable="true">
+          <simpleType>
+            <restriction base="string">
+              <maxLength value="2" />
+            </restriction>
+          </simpleType>
+        </element>
+        <element minOccurs="0" maxOccurs="1" name="zip" nillable="true">
+          <simpleType>
+            <restriction base="string">
+              <maxLength value="12" />
+            </restriction>
+          </simpleType>
+        </element>
+        <element minOccurs="0" maxOccurs="1" name="lat" nillable="true" type="int" />
+        <element minOccurs="0" maxOccurs="1" name="long" nillable="true" type="int" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="AddCustomerResponse">
+    <annotation>
+      <documentation>
+        <doc:action xmlns:doc="http://schemas.microsoft.com/servicemodel/adapters/metadata/documentation">Procedure/dbo/AddCustomer/response</doc:action>
+      </documentation>
+    </annotation>
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="1" name="AddCustomerResult" nillable="true" type="ns3:ArrayOfDataSet" />
+        <element minOccurs="1" maxOccurs="1" name="ReturnValue" type="int" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>
