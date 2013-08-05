@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="Customer" soapui-version="4.5.2" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="BasicHttpBinding_ITwoWayAsyncVoid" type="wsdl" bindingName="{http://btrestdemo.com/}BasicHttpBinding_ITwoWayAsyncVoid" soapVersion="1_1" anonymous="optional" definition="http://btrestdemo.com/GeoService/Customer.svc?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://btrestdemo.com/GeoService/Customer.svc?wsdl"><con:part><con:url>http://btrestdemo.com/GeoService/Customer.svc?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="BizTalkServiceInstance" targetNamespace="http://btrestdemo.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://btrestdemo.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:documentation>
+    <CreationInfo Created="2013-07-14 17:28:11Z"/>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://btrestdemo.com/Imports">
+      <xsd:import schemaLocation="http://btrestdemo.com:80/GeoService/Customer.svc?xsd=xsd2" namespace="http://Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Customer_Add_InputMessage">
+    <wsdl:part name="part" element="q1:AddCustomerRequest" xmlns:q1="http://Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest"/>
+  </wsdl:message>
+  <wsdl:message name="Customer_Add_OutputMessage"/>
+  <wsdl:portType name="Customer">
+    <wsdl:documentation/>
+    <wsdl:operation name="Add">
+      <wsdl:documentation/>
+      <wsdl:input message="tns:Customer_Add_InputMessage"/>
+      <wsdl:output message="tns:Customer_Add_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITwoWayAsyncVoid" type="tns:Customer">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Add">
+      <wsdl:documentation/>
+      <soap:operation soapAction="Add" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BizTalkServiceInstance">
+    <wsdl:port name="BasicHttpBinding_ITwoWayAsyncVoid" binding="tns:BasicHttpBinding_ITwoWayAsyncVoid">
+      <soap:address location="http://btrestdemo.com/GeoService/Customer.svc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://btrestdemo.com:80/GeoService/Customer.svc?xsd=xsd2</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:b="http://schemas.microsoft.com/BizTalk/2003" xmlns:ns0="https://Neudesic.BizTalkRESTDemo.Schema.PropertySchema" xmlns="http://Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest">
+  <xs:annotation>
+    <xs:appinfo/>
+  </xs:annotation>
+  <xs:element name="AddCustomerRequest">
+    <xs:annotation>
+      <xs:appinfo/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FirstName" type="xs:string"/>
+        <xs:element name="LastName" type="xs:string"/>
+        <xs:element name="FullAddress" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://btrestdemo.com/GeoService/Customer.svc</con:endpoint></con:endpoints><con:operation isOneWay="false" action="Add" name="Add" bindingOperationName="Add" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://btrestdemo.com/GeoService/Customer.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:neud="http://Neudesic.BizTalkRESTDemo.Schema.AddCustomerRequest">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <neud:AddCustomerRequest>
+         <FirstName>Cynthia</FirstName>
+         <LastName>Purnell</LastName>
+         <FullAddress>3868 Roosevelt Road, Mcpherson, KS 67460</FullAddress>
+      </neud:AddCustomerRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="Add"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
